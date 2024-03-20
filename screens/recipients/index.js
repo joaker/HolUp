@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, ScrollView, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-const generateMockRecipients = () => {
-  const names = ["John Doe", "Jane Smith", "Nick Johnson", "Sara Connor", "Mike Tyson", "Lea Thompson", "Tom Cruise", "Jerry Seinfield", "Elaine Benes", "Cosmo Kramer", "George Costanza", "Bruce Wayne", "Clark Kent", "Diana Prince", "Barry Allen", "Hal Jordan", "Arthur Curry", "Billy Batson", "John Constantine", "Oliver Queen", "Ray Palmer", "Carter Hall", "Kara Danvers", "Barbara Gordon", "Helena Bertinelli", "Dinah Lance", "Zatanna Zatara", "Selina Kyle", "Harleen Quinzel", "Pamela Isley"];
-  return names.map((name, index) => ({
-    id: String(index),
-    name,
-    detail: Math.random() < 0.5 ? `${Math.floor(Math.random() * 10000)}@example.com` : `#${Math.floor(Math.random() * 10000)}`,
-  }));
-};
+import { generateMockRecipients } from './mocks';
+import styles from './styles';
 
 const RecipientsScreen = ({ navigation }) => {
   const [searchText, setSearchText] = useState('');
-  const recipients = generateMockRecipients();
+  const recipients = generateMockRecipients()
+
+  console.log(recipients)
 
   const filteredRecipients = searchText.length > 0 ? recipients.filter(r => r.name.toLowerCase().includes(searchText.toLowerCase())) : recipients;
 
@@ -77,52 +72,5 @@ const RecipientsScreen = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  headerBlock: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#f0f0f0',
-  },
-  headerText: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  searchInput: {
-    flex: 1,
-    marginHorizontal: 10,
-  },
-  sectionHeader: {
-    backgroundColor: 'gray',
-    color: 'white',
-    padding: 10,
-  },
-  recipientRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: 'white',
-  },
-  circle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#f0f0f0',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  circleText: {
-    color: '#000',
-    fontSize: 20,
-  },
-  recipientName: {
-    fontSize: 16,
-  },
-  recipientDetail: {
-    fontSize: 14,
-    color: 'grey',
-  },
-});
 
 export default RecipientsScreen;
