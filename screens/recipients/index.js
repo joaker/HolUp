@@ -19,6 +19,11 @@ const RecipientsScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
+
+      {/* Zeroth Header Block */}
+      <View style={styles.headerBlock}>
+        <Text style={styles.headerText}>&nbsp;</Text>
+      </View>
       {/* First Header Block */}
       <View style={styles.headerBlock}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
