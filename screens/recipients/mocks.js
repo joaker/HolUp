@@ -63,12 +63,31 @@ const generateContact = (firstName, lastName, domain) => {
     return generatePhoneNumber()
 }
 
+export const USUAL_SUSPECTS = [
+    {
+        firstName: 'John',
+        lastName: 'Oakley'
+    },
+    {
+        firstName: 'Marcus',
+        lastName: 'Kim'
+    },
+].map(({firstName, lastName}, index) => {
+    return {
+        id: index,
+        firstName,
+        lastName,
+        name: `${firstName} ${lastName}`,
+        detail: generateContact(firstName, lastName, getDomain()),
+    }
+})
+
 export const generateMockRecipients = (count = DEFAULT_RECIPIENT_COUNT) => {
 
     // console.log(`generating ${count} recipients...`)
 
-    const recipients = []
-    for(let i = 0; i < count; i++) {
+    const recipients = USUAL_SUSPECTS.slice()
+    for(let i = USUAL_SUSPECTS.length; i < count; i++) {
 
         // console.log(`generating the ${i} recipient...`)
 
