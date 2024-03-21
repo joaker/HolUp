@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+        
+      },
+      "package": "com.joakerman.HolUp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "961d007e-58af-4636-932e-b30e44776f0d"
+      }
     }
   }
 }
