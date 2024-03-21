@@ -8,7 +8,7 @@ const RecipientsScreen = ({ navigation }) => {
   const [searchText, setSearchText] = useState('');
   const recipients = generateMockRecipients()
 
-  console.log(recipients)
+  // console.log(recipients)
 
   const filteredRecipients = searchText.length > 0 ? recipients.filter(r => r.name.toLowerCase().includes(searchText.toLowerCase())) : recipients;
 

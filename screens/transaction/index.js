@@ -10,12 +10,16 @@ import {
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { formatCurrency } from './helpers';
 
 const TransactionScreen = ({ route, navigation }) => {
   const { recipient } = route.params;
   const [memo, setMemo] = useState('');
+  const [currencyDigits, setCurrencyDigits] = useState('0.00');
   const [account, setAccount] = useState(''); // Placeholder for account selection
   const [repeat, setRepeat] = useState(false);
+
+  const currency = formatCurrency(currencyDigits)
 
   // Placeholder accounts data
   const accounts = [
@@ -49,9 +53,11 @@ const TransactionScreen = ({ route, navigation }) => {
           </View>
           <TextInput
             style={styles.currencyInput}
-            keyboardType="numeric"
-            placeholder="$0.00"
-            // Implementation of currency input handler is omitted for simplicity
+            inputMode='decimal'
+            // keyboardType="numeric"
+            placeholder="0.00"
+            value={currency}
+            onChangeText={setCurrencyDigits}
           />
           <View style={styles.memoSection}>
             <Text style={styles.memoLabel}>Message to recipient (optional)</Text>

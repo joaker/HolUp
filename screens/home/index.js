@@ -9,9 +9,9 @@ const HomeScreen = ({ navigation }) => {
     const renderQuickAction = ({ item }) => {
 
         createOnPress = (item) => () => {
-            console.log(`clicked: ${item.title}`)
+            // console.log(`clicked: ${item.title}`)
             if (item.screen) {
-                console.log(`navigating to: ${item.screen}`)
+                // console.log(`navigating to: ${item.screen}`)
                 navigation.navigate(item.screen)
             }
         }

@@ -65,7 +65,7 @@ const generateContact = (firstName, lastName, domain) => {
 
 export const generateMockRecipients = (count = DEFAULT_RECIPIENT_COUNT) => {
 
-    console.log(`generating ${count} recipients...`)
+    // console.log(`generating ${count} recipients...`)
 
     const recipients = []
     for(let i = 0; i < count; i++) {
@@ -73,7 +73,7 @@ export const generateMockRecipients = (count = DEFAULT_RECIPIENT_COUNT) => {
         // console.log(`generating the ${i} recipient...`)
 
         const fullName = generateName()
-        console.log({fullName})
+        // console.log({fullName})
 
         const {firstName, lastName} = fullName
 
