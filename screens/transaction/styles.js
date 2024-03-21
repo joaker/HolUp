@@ -66,7 +66,7 @@ export default StyleSheet.create({
       borderBottomColor: '#ccc',
       paddingVertical: 10,
       marginBottom: 20,
-      keyboardType: 'numeric',
+    //   keyboardType: 'numeric',
     },
     memoSection: {
       marginBottom: 20,
