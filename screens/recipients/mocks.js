@@ -93,6 +93,11 @@ export const generateMockRecipients = (count = DEFAULT_RECIPIENT_COUNT) => {
             detail,
         })
     };
+
+    recipients.sort((a, b) => {
+        return a.name.localeCompare(b.name)
+    })
+
     return recipients
 };
 
