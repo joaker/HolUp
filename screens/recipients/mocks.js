@@ -37,6 +37,32 @@ const generateName = () => {
     }
 }
 
+const generateEmail = (firstName, lastName, domain) => {
+
+    const suffix = Math.random() < 0.5 ? '' : `${Math.floor(Math.random() * 10000)}`
+
+    return `${firstName}.${lastName}${suffix}@${domain}`
+}
+
+const generatePhoneNumber = () => {
+    const digits =  Math.random().toString().slice(2,12);
+
+    const first = digits.substring(0, 3)
+    const second = digits.substring(3, 6)
+    const third = digits.substring(6)
+
+    const number = `${first}-${second}-${third}`
+
+    return number
+}
+
+const generateContact = (firstName, lastName, domain) => {
+    if(Math.random() < 0.5) {
+        return generateEmail(firstName, lastName, domain)
+    }
+    return generatePhoneNumber()
+}
+
 export const generateMockRecipients = (count = DEFAULT_RECIPIENT_COUNT) => {
 
     console.log(`generating ${count} recipients...`)
@@ -44,7 +70,7 @@ export const generateMockRecipients = (count = DEFAULT_RECIPIENT_COUNT) => {
     const recipients = []
     for(let i = 0; i < count; i++) {
 
-        console.log(`generating the ${i} recipient...`)
+        // console.log(`generating the ${i} recipient...`)
 
         const fullName = generateName()
         console.log({fullName})
@@ -55,9 +81,9 @@ export const generateMockRecipients = (count = DEFAULT_RECIPIENT_COUNT) => {
 
         const domain = getDomain()
 
-        const detail = Math.random() < 0.5 ? `${firstName}.${lastName}@${domain}` : `#${Math.floor(Math.random() * 10000)}`
+        const detail = generateContact(firstName, lastName, domain)
 
-        console.log({ id, firstName, lastName, domain })
+        // console.log({ id, firstName, lastName, domain })
 
         recipients.push({
             id,
