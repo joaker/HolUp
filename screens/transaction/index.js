@@ -33,6 +33,7 @@ const TransactionScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <Text>&nbsp;</Text>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="arrow-left" size={24} color="#000" />
         </TouchableOpacity>
@@ -96,7 +97,13 @@ const TransactionScreen = ({ route, navigation }) => {
           </View>
         </View>
       </ScrollView>
-      <TouchableOpacity style={styles.reviewButton}>
+      <TouchableOpacity style={styles.reviewButton} onPress={() => {
+        navigation.navigate('Confirmation', {
+          recipient: { name: recipient.name, detail: recipient.detail },
+          amount: currency,
+        });
+        
+      }}>
         <Text style={styles.reviewButtonText}>Review & send</Text>
       </TouchableOpacity>
     </View>
