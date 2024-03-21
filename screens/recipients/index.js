@@ -55,15 +55,19 @@ const RecipientsScreen = ({ navigation }) => {
         data={filteredRecipients}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <View style={styles.recipientRow}>
-            <View style={styles.circle}>
-              <Text style={styles.circleText}>{item.name[0]}</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Transaction', { recipient: item })}
+          >
+            <View style={styles.recipientRow}>
+              <View style={styles.circle}>
+                <Text style={styles.circleText}>{item.name[0]}</Text>
+              </View>
+              <View style={{ marginLeft: 10 }}>
+                <Text style={styles.recipientName}>{item.name}</Text>
+                <Text style={styles.recipientDetail}>{item.detail}</Text>
+              </View>
             </View>
-            <View style={{ marginLeft: 10 }}>
-              <Text style={styles.recipientName}>{item.name}</Text>
-              <Text style={styles.recipientDetail}>{item.detail}</Text>
-            </View>
-          </View>
+          </TouchableOpacity>
         )}
         ListHeaderComponent={
           <Text style={styles.sectionHeader}>Recent Recipients</Text>
