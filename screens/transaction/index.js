@@ -98,8 +98,8 @@ const TransactionScreen = ({ route, navigation }) => {
         </View>
       </ScrollView>
       <TouchableOpacity style={styles.reviewButton} onPress={() => {
-        navigation.navigate('Confirmation', {
-          recipient: { name: recipient.name, detail: recipient.detail },
+        navigation.navigate('Loading', {
+          recipient,
           amount: currency,
         });
         

@@ -1,6 +1,6 @@
 # HolUp
 
-A fake banking app designed to fool criminals attempting to initiate high-value transfers to burner bank accounts.
+A peer to peer money transfer app that has a configurable transfer limit.  You may lower it at any time, but increasing it takes time to take effect
 
 # Starting up in development mode
 

@@ -72,13 +72,18 @@ export const USUAL_SUSPECTS = [
         firstName: 'Marcus',
         lastName: 'Kim'
     },
-].map(({firstName, lastName}, index) => {
+    {
+        firstName: 'Tim',
+        lastName: 'Timmerson',
+        detail: 'sb-447rr330240878@personal.example.com',
+    }
+].map(({firstName, lastName, detail }, index) => {
     return {
         id: index,
         firstName,
         lastName,
         name: `${firstName} ${lastName}`,
-        detail: generateContact(firstName, lastName, getDomain()),
+        detail: detail ?? generateContact(firstName, lastName, getDomain()),
     }
 })
 
