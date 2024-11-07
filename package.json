@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-native-picker/picker": "^2.6.1",
-    "@react-native/gradle-plugin": "^0.76.1",
+    "@react-native/gradle-plugin": "0.73.5",
     "@react-navigation/native": "^6.1.16",
     "@react-navigation/native-stack": "^6.9.25",
     "expo": "^51.0.38",
